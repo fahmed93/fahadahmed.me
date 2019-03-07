@@ -9,16 +9,21 @@ import ContactMe from './Components/ContactMe';
 import Footer from './Components/Footer.js';
 import Portfolio from './Components/Portfolio';
 
+import personalData from './Data/personalData';
+import aboutData from './Data/aboutData';
+import educationData from './Data/educationData';
+import workData from './Data/workData';
+import portfolioData from './Data/portfolioData';
+
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <About />
-        <Resume />
-        <Portfolio />
-        <ContactMe />
-        <Footer />
+        <Header personalData={personalData} />
+        <About aboutData={aboutData} />
+        <Resume educationData={educationData} workData={workData} />
+        <Portfolio portfolioData={portfolioData} />
+        <Footer personalData={personalData} />
       </div>
     );
   }

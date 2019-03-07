@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 export default class Footer extends Component {
   render() {
+    let personalData = this.props.personalData;
     return (
       <React.Fragment>
         <footer>
@@ -9,38 +10,19 @@ export default class Footer extends Component {
             <div className="twelve columns">
               <ul className="social-links">
                 <li>
-                  <a href="#">
+                  <a href={personalData.facebook}>
                     <i className="fa fa-facebook" />
                   </a>
                 </li>
+
                 <li>
-                  <a href="#">
-                    <i className="fa fa-twitter" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-google-plus" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
+                  <a href={personalData.linkedin}>
                     <i className="fa fa-linkedin" />
                   </a>
                 </li>
                 <li>
-                  <a href="#">
-                    <i className="fa fa-instagram" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-dribbble" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fa fa-skype" />
+                  <a href={personalData.github}>
+                    <i className="fa fa-github" />
                   </a>
                 </li>
               </ul>

@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
-
+import Bars from 'react-bars';
 export default class Resume extends Component {
   render() {
+    let educationData = this.props.educationData;
+    let workData = this.props.workData;
+    let responsibilities = workData.responsibilities
+      .split('\\n')
+      .map((item, i) => {
+        return <p key={i}>{item}</p>;
+      });
     return (
       <React.Fragment>
         <section id="resume">
@@ -16,39 +23,15 @@ export default class Resume extends Component {
             <div className="nine columns main-col">
               <div className="row item">
                 <div className="twelve columns">
-                  <h3>University of Life</h3>
+                  <h3>{educationData.school}</h3>
                   <p className="info">
-                    Master in Graphic Design <span>•</span>{' '}
-                    <em className="date">April 2007</em>
+                    {educationData.degree} <span>•</span>{' '}
+                    <em className="major">{educationData.major}</em>{' '}
+                    <span>•</span>{' '}
+                    <em className="date">{educationData.year}</em>
                   </p>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                    natoque penatibus et magnis dis parturient montes, nascetur
-                    ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-                    eu, pretium quis, sem. Nulla consequat massa quis enim.
-                    Donec pede justo, fringilla vel, aliquet nec, vulputate
-                    eget, arcu. Nullam dictum felis eu pede mollis pretium.
-                  </p>
-                </div>
-              </div>{' '}
-              {/* item end */}
-              <div className="row item">
-                <div className="twelve columns">
-                  <h3>School of Cool Designers</h3>
-                  <p className="info">
-                    B.A. Degree in Graphic Design <span>•</span>{' '}
-                    <em className="date">March 2003</em>
-                  </p>
-                  <p>
-                    This is Photoshop's version of Lorem Ipsum. Proin gravida
-                    nibh vel velit auctor aliquet. Aenean sollicitudin, lorem
-                    quis bibendum auctor, nisi elit consequat ipsum, nec
-                    sagittis sem nibh id elit. Duis sed odio sit amet nibh
-                    vulputate cursus a sit amet mauris. Morbi accumsan ipsum
-                    velit. Nam nec tellus a odio tincidunt auctor a ornare odio.
-                    Sed non mauris vitae erat
-                  </p>
+                  <h5>Relevant Courses</h5>
+                  <p>{educationData.classes.join(' | ')}</p>
                 </div>
               </div>{' '}
               {/* item end */}
@@ -67,39 +50,12 @@ export default class Resume extends Component {
             <div className="nine columns main-col">
               <div className="row item">
                 <div className="twelve columns">
-                  <h3>Awesome Design Studio</h3>
+                  <h3>{workData.company}</h3>
                   <p className="info">
-                    Senior UX Designer <span>•</span>{' '}
-                    <em className="date">March 2010 - Present</em>
+                    {workData.title} <span>•</span>{' '}
+                    <em className="date">{workData.years}</em>
                   </p>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                    natoque penatibus et magnis dis parturient montes, nascetur
-                    ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-                    eu, pretium quis, sem. Nulla consequat massa quis enim.
-                    Donec pede justo, fringilla vel, aliquet nec, vulputate
-                    eget, arcu. Nullam dictum felis eu pede mollis pretium.
-                  </p>
-                </div>
-              </div>{' '}
-              {/* item end */}
-              <div className="row item">
-                <div className="twelve columns">
-                  <h3>Super Cool Studio</h3>
-                  <p className="info">
-                    UX Designer <span>•</span>{' '}
-                    <em className="date">March 2007 - February 2010</em>
-                  </p>
-                  <p>
-                    This is Photoshop's version of Lorem Ipsum. Proin gravida
-                    nibh vel velit auctor aliquet. Aenean sollicitudin, lorem
-                    quis bibendum auctor, nisi elit consequat ipsum, nec
-                    sagittis sem nibh id elit. Duis sed odio sit amet nibh
-                    vulputate cursus a sit amet mauris. Morbi accumsan ipsum
-                    velit. Nam nec tellus a odio tincidunt auctor a ornare odio.
-                    Sed non mauris vitae erat
-                  </p>
+                  {responsibilities}
                 </div>
               </div>{' '}
               {/* item end */}
@@ -116,40 +72,31 @@ export default class Resume extends Component {
               </h1>
             </div>
             <div className="nine columns main-col">
-              <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                quae ab illo inventore veritatis et quasi architecto beatae
-                vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-                voluptas sit aspernatur aut odit aut fugit, sed quia
-                consequuntur magni dolores eos qui ratione voluptatem sequi
-                nesciunt.
-              </p>
               <div className="bars">
                 <ul className="skills">
                   <li>
-                    <span className="bar-expand photoshop" />
-                    <em>Photoshop</em>
+                    <span className="bar-expand javascript" />
+                    <em>Javascript</em>
                   </li>
                   <li>
-                    <span className="bar-expand illustrator" />
-                    <em>Illustrator</em>
+                    <span className="bar-expand java" />
+                    <em>Java</em>
                   </li>
                   <li>
-                    <span className="bar-expand wordpress" />
-                    <em>Wordpress</em>
+                    <span className="bar-expand reactjs" />
+                    <em>React.js</em>
                   </li>
                   <li>
-                    <span className="bar-expand css" />
-                    <em>CSS</em>
+                    <span className="bar-expand amazonwebservices" data={50} />
+                    <em>Amazon Web Services</em>
                   </li>
                   <li>
-                    <span className="bar-expand html5" />
-                    <em>HTML5</em>
+                    <span className="bar-expand mongodb" />
+                    <em>MongoDB</em>
                   </li>
                   <li>
-                    <span className="bar-expand jquery" />
-                    <em>jQuery</em>
+                    <span className="bar-expand sql" />
+                    <em>SQL</em>
                   </li>
                 </ul>
               </div>
