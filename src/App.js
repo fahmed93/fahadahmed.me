@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import Header from './Components/Header';
@@ -9,21 +8,18 @@ import ContactMe from './Components/ContactMe';
 import Footer from './Components/Footer.js';
 import Portfolio from './Components/Portfolio';
 
-import personalData from './Data/personalData';
-import aboutData from './Data/aboutData';
-import educationData from './Data/educationData';
-import workData from './Data/workData';
-import portfolioData from './Data/portfolioData';
+import data from './Data/data';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header personalData={personalData} />
-        <About aboutData={aboutData} />
-        <Resume educationData={educationData} workData={workData} />
-        <Portfolio portfolioData={portfolioData} />
-        <Footer personalData={personalData} />
+        <Header personalData={data.personalData} />
+        <About aboutData={data.aboutData} />
+        <Resume educationData={data.educationData} workData={data.workData} />
+        <Portfolio portfolioData={data.portfolioData} />
+        <ContactMe />
+        <Footer personalData={data.personalData} />
       </div>
     );
   }

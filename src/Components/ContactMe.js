@@ -1,6 +1,38 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 export default class ContactMe extends Component {
+  constructor() {
+    super();
+    this.state = {
+      contactName: '',
+      contactEmail: '',
+      contactSubject: '',
+      contactMessage: ''
+    };
+  }
+
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+    const contactData = {
+      contactName: this.state.contactName,
+      contactEmail: this.state.contactEmail,
+      contactSubject: this.state.contactSubject,
+      contactMessage: this.state.contactMessage
+    };
+    axios
+      .post(
+        'https://p12u3yqy1a.execute-api.us-east-1.amazonaws.com/default/appendSpreadsheet',
+        contactData
+      )
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -11,20 +43,12 @@ export default class ContactMe extends Component {
                 <span>Get In Touch.</span>
               </h1>
             </div>
-            <div className="ten columns">
-              <p className="lead">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                quae ab illo inventore veritatis et quasi architecto beatae
-                vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-                voluptas sit aspernatur aut odit aut fugit.
-              </p>
-            </div>
+            <div className="ten columns" />
           </div>
           <div className="row">
             <div className="eight columns">
               {/* form */}
-              <form action method="post" id="contactForm" name="contactForm">
+              <form method="post" id="contactForm" name="contactForm">
                 <fieldset>
                   <div>
                     <label htmlFor="contactName">
@@ -32,10 +56,11 @@ export default class ContactMe extends Component {
                     </label>
                     <input
                       type="text"
-                      defaultValue
                       size={35}
                       id="contactName"
                       name="contactName"
+                      value={this.state.value}
+                      onChange={this.onChange}
                     />
                   </div>
                   <div>
@@ -44,20 +69,22 @@ export default class ContactMe extends Component {
                     </label>
                     <input
                       type="text"
-                      defaultValue
                       size={35}
                       id="contactEmail"
                       name="contactEmail"
+                      value={this.state.value}
+                      onChange={this.onChange}
                     />
                   </div>
                   <div>
                     <label htmlFor="contactSubject">Subject</label>
                     <input
                       type="text"
-                      defaultValue
                       size={35}
                       id="contactSubject"
                       name="contactSubject"
+                      value={this.state.value}
+                      onChange={this.onChange}
                     />
                   </div>
                   <div>
@@ -69,13 +96,16 @@ export default class ContactMe extends Component {
                       rows={15}
                       id="contactMessage"
                       name="contactMessage"
-                      defaultValue={''}
+                      value={this.state.value}
+                      onChange={this.onChange}
                     />
                   </div>
                   <div>
-                    <button className="submit">Submit</button>
+                    <button className="submit" onSubmit={this.onSubmit}>
+                      Submit
+                    </button>
                     <span id="image-loader">
-                      <img alt src="images/loader.gif" />
+                      <img alt="" src="images/loader.gif" />
                     </span>
                   </div>
                 </fieldset>
@@ -90,47 +120,6 @@ export default class ContactMe extends Component {
                 <br />
               </div>
             </div>
-            <aside className="four columns footer-widgets">
-              <div className="widget widget_contact">
-                <h4>Address and Phone</h4>
-                <p className="address">
-                  Jonathan Doe
-                  <br />
-                  1600 Amphitheatre Parkway <br />
-                  Mountain View, CA 94043 US
-                  <br />
-                  <span>(123) 456-7890</span>
-                </p>
-              </div>
-              <div className="widget widget_tweets">
-                <h4 className="widget-title">Latest Tweets</h4>
-                <ul id="twitter">
-                  <li>
-                    <span>
-                      This is Photoshop's version of Lorem Ipsum. Proin gravida
-                      nibh vel velit auctor aliquet. Aenean sollicitudin, lorem
-                      quis bibendum auctor, nisi elit consequat ipsum
-                      <a href="#">http://t.co/CGIrdxIlI3</a>
-                    </span>
-                    <b>
-                      <a href="#">2 Days Ago</a>
-                    </b>
-                  </li>
-                  <li>
-                    <span>
-                      Sed ut perspiciatis unde omnis iste natus error sit
-                      voluptatem accusantium doloremque laudantium, totam rem
-                      aperiam, eaque ipsa quae ab illo inventore veritatis et
-                      quasi
-                      <a href="#">http://t.co/CGIrdxIlI3</a>
-                    </span>
-                    <b>
-                      <a href="#">3 Days Ago</a>
-                    </b>
-                  </li>
-                </ul>
-              </div>
-            </aside>
           </div>
         </section>
       </React.Fragment>

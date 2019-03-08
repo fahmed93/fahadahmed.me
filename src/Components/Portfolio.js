@@ -16,8 +16,8 @@ export default class Portfolio extends Component {
               >
                 <div className="columns portfolio-item">
                   <div className="item-wrap">
-                    <a href="#modal-01" title>
-                      <img alt src="images/portfolio/gamerconnector.jpg" />
+                    <a href="#modal-01">
+                      <img alt="" src="images/portfolio/gamerconnector.jpg" />
                       <div className="overlay">
                         <div className="portfolio-item-meta">
                           <h5>{portfolioData.projects[0].name}</h5>
@@ -41,7 +41,7 @@ export default class Portfolio extends Component {
               <img
                 className="scale-with-grid"
                 src="images/portfolio/gamerconnector.jpg"
-                alt
+                alt=""
               />
               <div className="description-box">
                 <h4>{portfolioData.name}</h4>

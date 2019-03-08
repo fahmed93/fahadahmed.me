@@ -389,7 +389,7 @@ ul#nav li.current a {
   -webkit-animation: sql 2s ease;
 }
 .mongodb {
-  width: 50%;
+  width: 25%;
   -moz-animation: mongodb 2s ease;
   -webkit-animation: mongodb 2s ease;
 }

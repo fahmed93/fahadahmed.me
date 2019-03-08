@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Bars from 'react-bars';
 export default class Resume extends Component {
   render() {
     let educationData = this.props.educationData;
