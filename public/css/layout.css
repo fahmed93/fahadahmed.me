@@ -299,7 +299,8 @@ ul#nav li.current a {
 }
 
 .education,
-.work {
+.work,
+.certs {
   margin-bottom: 48px;
   padding-bottom: 24px;
   border-bottom: 1px solid #e8e8e8;
@@ -317,6 +318,14 @@ ul#nav li.current a {
 #resume .date {
   font: 15px/24px 'opensans-regular', sans-serif;
   margin-top: 6px;
+}
+
+#cert-logo {
+  display: block;
+}
+
+#cert-tag {
+  display: block;
 }
 
 /*----------------------------------------------*/
@@ -384,7 +393,7 @@ ul#nav li.current a {
   -webkit-animation: java 2s ease;
 }
 .sql {
-  width: 60%;
+  width: 45%;
   -moz-animation: sql 2s ease;
   -webkit-animation: sql 2s ease;
 }

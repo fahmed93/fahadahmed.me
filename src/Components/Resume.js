@@ -62,6 +62,35 @@ export default class Resume extends Component {
             {/* main-col end */}
           </div>{' '}
           {/* End Work */}
+          {/* Certs }
+        ----------------------------------------------- */}
+          <div className="row work">
+            <div className="three columns header-col">
+              <h1>
+                <span>Certifications</span>
+              </h1>
+            </div>
+            <div className="nine columns main-col">
+              <div className="row item">
+                <div className="twelve columns">
+                  <img
+                    className="cert-logo"
+                    src="images/aws/logo_color.png"
+                    alt="Amazon Web Services Logo"
+                  />
+                  <br />
+                  <img
+                    className="cert-tag"
+                    src="images/aws/tag_black.png"
+                    alt="Amazon Web Services Developer Associate tag"
+                  />
+                </div>
+              </div>{' '}
+              {/* item end */}
+            </div>{' '}
+            {/* main-col end */}
+          </div>{' '}
+          {/* End Certs */}
           {/* Skills
       ----------------------------------------------- */}
           <div className="row skill">
@@ -74,13 +103,14 @@ export default class Resume extends Component {
               <div className="bars">
                 <ul className="skills">
                   <li>
-                    <span className="bar-expand javascript" />
-                    <em>Javascript</em>
-                  </li>
-                  <li>
                     <span className="bar-expand java" />
                     <em>Java</em>
                   </li>
+                  <li>
+                    <span className="bar-expand javascript" />
+                    <em>Javascript</em>
+                  </li>
+
                   <li>
                     <span className="bar-expand reactjs" />
                     <em>React.js</em>
@@ -90,12 +120,12 @@ export default class Resume extends Component {
                     <em>Amazon Web Services</em>
                   </li>
                   <li>
-                    <span className="bar-expand mongodb" />
-                    <em>MongoDB</em>
-                  </li>
-                  <li>
                     <span className="bar-expand sql" />
                     <em>SQL</em>
+                  </li>
+                  <li>
+                    <span className="bar-expand mongodb" />
+                    <em>MongoDB</em>
                   </li>
                 </ul>
               </div>
